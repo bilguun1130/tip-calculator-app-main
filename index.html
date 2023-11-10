@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body>
+  <img src="./images/logo.svg" alt="logo" class="logo">
+  <main>
+    <div class="container">
+      
+      <div class="bill">
+        <label for="bill">Bill</label>
+        <div class="bill__input">
+          <img src="./images/icon-dollar.svg" alt="icon dollar">
+          <input type="text" id="bill" placeholder="0">
+        </div>
+        <div class="bill__tip">
+          <label for="tip">Select Tip %</label>
+          <div class="tip__buttons">
+            <button class="tip__button">5%</button>
+            <button class="tip__button">10%</button>
+            <button class="tip__button">15%</button>
+            <button class="tip__button">25%</button>
+            <button class="tip__button">50%</button>
+            <input type="text" id="tip" placeholder="Custom">
+          </div>
+        </div>
+        <label for="people">Number of People</label>
+        
+        <div class="bill__people" data-error="Can't be zero">
+          <img src="./images/icon-person.svg" alt="icon person">
+          <input type="text" id="people" placeholder="0">
+          <div class="error hide">Can't be zero</div>          
+        </div>
+      </div>
+      <div class="result">
+        <div class="result__tip">
+          <p>Tip Amount <br><span class="person">/ person</span></p>
+          <p class="how-much-person result-amount">$0.00</p>
+        </div>
+        <div class="result__total">
+          <p>Total <br><span class="person">/ person</span></p>
+          <p class="how-much-total result-amount">$0.00</p>
+        </div>
+        <button type="submit" class="reset" onclick="reset()">Reset</button>
+      </div>
+    </div>    
+  </main>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Bilguun Purevdorj</a>.
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js" integrity="sha512-SvgzybymTn9KvnNGu0HxXiGoNeOi0TTK7viiG0EGn2Qbeu/NFi3JdWrJs2JHiGA1Lph+dxiDv5F9gDlcgBzjfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
+  
+</body>
+</html>
