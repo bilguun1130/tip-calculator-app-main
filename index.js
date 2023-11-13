@@ -7,6 +7,11 @@ var billFormat = new Cleave('#bill', {
     numeral: true,
     numeralThousandsGroupStyle: 'thousand'
 });
+const numberFormatter = new Intl.NumberFormat('en-US', {
+    style: 'decimal',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+});
 
 $("#bill").on('keyup', function () {
     bill = Number($(this).val().replaceAll(',', ''));
@@ -19,7 +24,6 @@ $("#bill").on('keyup', function () {
 $(".tip__button").click(function () {
     selectedTip = Number($(this).html().slice(0, -1));
     $(".tip__button").removeClass('selected');
-    console.log(selectedTip);
     this.classList.toggle('selected');
     if(selectedTip < 0) {
         selectedTip = 0;
@@ -28,7 +32,6 @@ $(".tip__button").click(function () {
 });
 $("#tip").keyup(function () {
     selectedTip = Number($(this).val());
-    console.log(selectedTip);
     $(".tip__button").removeClass('selected');
     calculate(); 
 });
@@ -49,10 +52,12 @@ $("#people").keyup(function () {
 function calculate() {
     if (people != 0) {
         let tip = bill * selectedTip / 100;
-        let tipPerPerson = tip / people;
-        let totalPerPerson = (bill + tip) / people;
-        tipAmount.html('$' + tipPerPerson.toFixed(2));
-        total.html('$' + totalPerPerson.toFixed(2));
+        let tipPerPerson = (tip / people).toFixed(2);
+        let totalPerPerson = ((bill + tip) / people).toFixed(2);
+        const formattedTotal = numberFormatter.format(totalPerPerson);
+        const formattedTip = numberFormatter.format(tipPerPerson);
+        tipAmount.html('$' + formattedTip);
+        total.html('$' + formattedTotal);
     }
 }
 function reset() {
@@ -69,3 +74,5 @@ function reset() {
 
 const tipAmount = $('.how-much-person');
 const total = $('.how-much-total');
+
+

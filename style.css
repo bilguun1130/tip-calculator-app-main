@@ -220,7 +220,7 @@
     }
     .result-amount {
         color: var(--strong-cyan) !important;
-        font-size: 3rem !important; 
+        font-size: 200% !important; 
     }
     .result__total {
         display: flex;
@@ -270,6 +270,12 @@
     
     
     @media (max-width: 768px) {
+        .logo {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
         .container {
             width: 100%;
             flex-direction: column;
